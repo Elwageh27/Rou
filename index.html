@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dental Exam Lab | بنك أسئلة طب الأسنان</title>
+<style>
+:root{--bg:#0b1220;--panel:#121e31;--panel2:#17263c;--line:#263b56;--text:#eef5ff;--muted:#9fb1c8;--cyan:#55d6e8;--gold:#ffc66d;--green:#43d69a;--red:#ff7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#16334a 0,transparent 32%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+header{padding:28px 5vw 20px;border-bottom:1px solid var(--line);background:#0c1728dd;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.wrap{max-width:1100px;margin:auto}.brand{display:flex;align-items:center;gap:14px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--cyan),#297ca7);display:grid;place-items:center;color:#061522;font-size:25px;font-weight:bold}
+h1{font-size:clamp(22px,4vw,32px);margin:0}header p{margin:2px 0 0;color:var(--muted);font-size:13px}
+main{max-width:1100px;margin:26px auto;padding:0 18px}.hero{background:linear-gradient(120deg,#142b43,#132239);border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:18px}
+.hero h2{margin:0 0 8px;font-size:23px}.hero p{margin:0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.stat{background:#0d1a2b;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}.stat b{display:block;color:var(--cyan);font-size:22px}.stat span{font-size:12px;color:var(--muted)}
+.tabs,.filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab,.filter,button{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 15px;border-radius:12px;cursor:pointer;font:inherit}.tab.active,.filter.active{background:#16465b;border-color:var(--cyan);color:#dffcff}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:15px}.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:13px}.tag{background:#203a52;color:#aeeaf0;border-radius:20px;padding:4px 10px;font-size:12px}
+.qtitle{font-size:21px;line-height:1.7;margin:16px 0}.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:flex-start;text-align:right;width:100%;background:#0e1a2b;border:1px solid #2b405b;padding:13px;border-radius:13px;color:var(--text);cursor:pointer}.option:hover{border-color:var(--cyan)}.letter{flex:0 0 28px;height:28px;border-radius:9px;background:#203b52;display:grid;place-items:center;color:var(--cyan);font-weight:bold}.option.correct{border-color:var(--green);background:#103528}.option.wrong{border-color:var(--red);background:#3a1d2b}.option:disabled{cursor:default;opacity:1}
+.feedback{margin-top:14px;border-radius:13px;padding:14px;background:#0d1a2b;border:1px solid var(--line)}.feedback.good{border-color:#2d946e}.feedback.bad{border-color:#b94e62}.feedback strong{display:block;margin-bottom:4px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.primary{background:linear-gradient(120deg,#2ab9c9,#2687a9);border:0;color:#061a25;font-weight:bold}.secondary{background:#1a2b40}.progress{height:7px;background:#26374d;border-radius:9px;overflow:hidden;margin:12px 0}.progress div{height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));width:0}
+textarea{width:100%;min-height:140px;background:#0d1a2b;border:1px solid #334a66;border-radius:13px;padding:14px;color:var(--text);font:inherit;resize:vertical}
+.answer{display:none;margin-top:14px;background:#0d1a2b;border:1px solid #2c765f;border-radius:14px;padding:15px}.answer.show{display:block}.answer li{margin:5px 0}.muted{color:var(--muted);font-size:13px}.small{font-size:12px;color:var(--muted)}
+select{background:#0e1a2b;color:var(--text);border:1px solid var(--line);padding:10px;border-radius:12px;font:inherit}
+.result{text-align:center;padding:30px}.result .score{font-size:48px;color:var(--cyan);font-weight:bold}
+footer{text-align:center;color:var(--muted);padding:30px 15px;font-size:12px}
+@media(max-width:650px){header{position:static}.stats{grid-template-columns:1fr 1fr 1fr}.panel{padding:15px}.qtitle{font-size:18px}}
+</style></head>
+<body>
+<header><div class="wrap brand"><div class="logo">D</div><div><h1>Dental Exam Lab</h1><p>Oral Pathology • MCQ & Enumerate Practice</p></div></div></header>
+<main>
+<section class="hero"><h2>ذاكر بالحل… مش بالحفظ الأعمى 🦷</h2><p>بنك أسئلة تفاعلي مبني على المحاضرات الثلاث المرفوعة. كل إجابة MCQ لها تفسير، وأسئلة الـ Enumerate معها نموذج إجابة للمراجعة.</p>
+<div class="stats"><div class="stat"><b id="mcqCount">0</b><span>MCQ Questions</span></div><div class="stat"><b id="enumCount">0</b><span>Enumerate Questions</span></div><div class="stat"><b>3</b><span>Lectures</span></div></div></section>
+<div class="tabs"><button class="tab active" id="tabMcq" onclick="switchMode('mcq')">اختيار من متعدد MCQ</button><button class="tab" id="tabEnum" onclick="switchMode('enum')">Enumerate</button><button class="tab" id="tabExam" onclick="startExam()">امتحان مختلط</button></div>
+<div class="filters"><select id="topic" onchange="resetSession()"><option value="All">كل المحاضرات</option><option>Premalignant lesions</option><option>Reactive & benign oral lesions</option><option>Benign tumors</option></select><button class="filter active" id="allMode" onclick="setModeFilter('all')">كل الأسئلة</button><button class="filter" id="wrongMode" onclick="setModeFilter('wrong')">الأسئلة اللي غلطت فيها</button></div>
+<div id="stage" class="panel"></div>
+</main><footer>Dental Exam Lab • المحتوى والأسئلة مستندة إلى ملفات المحاضرات المرفوعة فقط.</footer>
+<script src="questions.js"></script>
+<script>
+const BANK=window.BANK; let mode='mcq',filterMode='all',items=[],idx=0,score=0,answered=0,wrongIds=new Set(),exam=false;
+document.getElementById('mcqCount').textContent=BANK.mcqs.length;document.getElementById('enumCount').textContent=BANK.enums.length;
+function switchMode(m){mode=m;exam=false;document.getElementById('tabMcq').classList.toggle('active',m==='mcq');document.getElementById('tabEnum').classList.toggle('active',m==='enum');document.getElementById('tabExam').classList.remove('active');resetSession()}
+function setModeFilter(m){filterMode=m;document.getElementById('allMode').classList.toggle('active',m==='all');document.getElementById('wrongMode').classList.toggle('active',m==='wrong');resetSession()}
+function resetSession(){idx=0;score=0;answered=0;loadItems()}
+function loadItems(){let source=mode==='mcq'?BANK.mcqs:BANK.enums;let topic=document.getElementById('topic').value;items=source.filter(x=>(topic==='All'||x.topic===topic)&&(filterMode==='all'||wrongIds.has(x.id)));render()}
+function startExam(){exam=true;mode='mcq';document.getElementById('tabMcq').classList.remove('active');document.getElementById('tabEnum').classList.remove('active');document.getElementById('tabExam').classList.add('active');let topic=document.getElementById('topic').value;let a=BANK.mcqs.filter(x=>topic==='All'||x.topic===topic).sort(()=>Math.random()-.5).slice(0,20);items=a;idx=0;score=0;answered=0;render()}
+function render(){let s=document.getElementById('stage');if(!items.length){s.innerHTML='<div class="result"><h2>مفيش أسئلة هنا لسه</h2><p class="muted">حل شوية أسئلة الأول أو غيّر الفلتر.</p></div>';return}
+if(idx>=items.length){s.innerHTML=`<div class="result"><div class="score">${score} / ${answered}</div><h2>خلصت الجولة! 🎉</h2><p>نسبة الإجابات الصحيحة: ${answered?Math.round(score/answered*100):0}%</p><p class="muted">الأسئلة التي أخطأت فيها محفوظة داخل الجلسة الحالية.</p><button class="primary" onclick="resetSession()">ابدأ من جديد</button> <button onclick="switchMode('mcq')">تدريب MCQ</button></div>`;return}
+let q=items[idx],pct=Math.round(idx/items.length*100);let html=`<div class="topline"><span>${mode==='mcq'?'MCQ':'ENUMERATE'} • سؤال ${idx+1} من ${items.length}</span><span class="tag">${q.topic}</span></div><div class="progress"><div style="width:${pct}%"></div></div><h2 class="qtitle">${q.q}</h2>`;
+if(mode==='mcq'){html+='<div class="options">'+q.opts.map((o,i)=>`<button class="option" id="opt${i}" onclick="answer(${i})"><span class="letter">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')+'</div><div id="fb"></div>'}
+else{html+=`<textarea id="enumInput" placeholder="اكتب إجابتك هنا… حاول تكتب كل النقاط من ذاكرتك"></textarea><div class="actions"><button class="primary" onclick="showEnum()">اعرض الإجابة النموذجية</button></div><div id="enumAnswer" class="answer"></div><p class="small">نصيحة: اكتب النقاط في سطور منفصلة، وبعدها قارن إجابتك بالنموذج.</p>`}
+html+=`<div class="actions"><button class="secondary" onclick="prevQ()" ${idx===0?'disabled':''}>السابق</button><button class="primary" onclick="nextQ()">${idx===items.length-1?'إنهاء':'السؤال التالي'}</button></div>`;
+s.innerHTML=html}
+function answer(n){let q=items[idx],good=n===q.a;answered++;if(good)score++;else wrongIds.add(q.id);q.opts.forEach((_,i)=>{let b=document.getElementById('opt'+i);b.disabled=true;if(i===q.a)b.classList.add('correct');if(i===n&&!good)b.classList.add('wrong')});let fb=document.getElementById('fb');fb.className='feedback '+(good?'good':'bad');fb.innerHTML=`<strong>${good?'✓ إجابة صحيحة، برافو!':'✕ الإجابة غير صحيحة'}</strong><div>${q.feedback[n]}</div>${!good?`<p><b>الإجابة الصحيحة:</b> ${q.opts[q.a]}</p><p>${q.why}</p>`:''}`}
+function showEnum(){let q=items[idx],ans=document.getElementById('enumAnswer');let typed=document.getElementById('enumInput').value.trim();ans.innerHTML=`<b>نموذج الإجابة (${q.ref}):</b><ol>${q.answers.map(x=>`<li>${x}</li>`).join('')}</ol><p class="muted">راجع إجابتك وحدد بنفسك النقاط التي كتبتها أو نسيتها. الأسئلة المقالية لا يتم الحكم عليها آليًا حتى لا نظلم صياغتك.</p>`;ans.classList.add('show');if(!typed)document.getElementById('enumInput').focus()}
+function nextQ(){if(idx<items.length)idx++;render()}function prevQ(){if(idx>0)idx--;render()}
+loadItems();
+</script></body></html>
